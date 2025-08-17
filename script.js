@@ -1,41 +1,51 @@
 const APIURL = "https://api.github.com/users/";
 
+const TOKEN = null; 
+
 const main = document.getElementById("main");
 const form = document.getElementById("userForm");
 const search = document.getElementById("search");
 const toggleBtn = document.getElementById("toggle");
 
-
 function showLoader() {
   main.innerHTML = `<div class="loader"></div>`;
 }
 
+function hideLoader() {
+  const loader = document.querySelector(".loader");
+  if (loader) loader.remove();
+}
 
 async function getUser(username) {
   try {
     showLoader();
-    const resp = await fetch(APIURL + username);
-    if (!resp.ok) throw new Error("User not found");
+    const resp = await fetch(APIURL + username, {
+      headers: TOKEN ? { Authorization: `token ${TOKEN}` } : {},
+    });
 
+    if (!resp.ok) throw new Error("User not found");
     const data = await resp.json();
+
     createUserCard(data);
-    getRepos(username);
+    await getRepos(username);
   } catch (err) {
     main.innerHTML = `<h2>${err.message}</h2>`;
+  } finally {
+    hideLoader();
   }
 }
 
-
 async function getRepos(username) {
   try {
-    const resp = await fetch(APIURL + username + "/repos?sort=created");
+    const resp = await fetch(`${APIURL}${username}/repos?sort=created`, {
+      headers: TOKEN ? { Authorization: `token ${TOKEN}` } : {},
+    });
     const repos = await resp.json();
     addReposToCard(repos);
   } catch (err) {
     console.log("Error fetching repos");
   }
 }
-
 
 function createUserCard(user) {
   const cardHTML = `
@@ -58,7 +68,6 @@ function createUserCard(user) {
   main.innerHTML = cardHTML;
 }
 
-
 function addReposToCard(repos) {
   const reposEl = document.querySelector(".repos");
   repos.slice(0, 5).forEach((repo) => {
@@ -71,7 +80,7 @@ function addReposToCard(repos) {
   });
 }
 
-
+// Dark mode toggle
 toggleBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
   toggleBtn.textContent = document.body.classList.contains("dark-mode")
@@ -79,7 +88,7 @@ toggleBtn.addEventListener("click", () => {
     : "🌙 Dark Mode";
 });
 
-
+// Search form submit
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const user = search.value.trim();
