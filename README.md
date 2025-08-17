@@ -39,9 +39,7 @@ A simple web app to search GitHub users and explore their repositories using the
    git clone https://github.com/ashhchouhan/Github-User-Finder.git
 
 1.Open the folder in VS Code or any editor
-
 2.Run index.html in your browser
-
 3.Search for any GitHub username and explore 🚀
 
 📂 Project Structure
@@ -54,8 +52,8 @@ A simple web app to search GitHub users and explore their repositories using the
 
 
 📄 License
-
 This project is licensed under the MIT License – you’re free to use, modify, and share with attribution.
+
 
 👩‍💻 Author
 
