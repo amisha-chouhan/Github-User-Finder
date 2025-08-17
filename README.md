@@ -24,8 +24,8 @@ A simple web app to search GitHub users and explore their repositories using the
 ## 📸 Screenshots 
 
 ![App Screenshot](image/Screenshot%20(73).png)
-![App Screenshot](../Github_Finder/image/Screenshot%20(74).png)
-![App Screenshot](../Github_Finder/image/Screenshot%20(75).png)
+![App Screenshot](image/Screenshot%20(74).png)
+![App Screenshot](image/Screenshot%20(75).png)
 
 
 
@@ -43,7 +43,7 @@ A simple web app to search GitHub users and explore their repositories using the
 
 3.Search for any GitHub username and explore 🚀
 
-
+---
 
 📂 Project Structure
 📦 Github-User-Finder
@@ -53,11 +53,13 @@ A simple web app to search GitHub users and explore their repositories using the
  ┣ 📂 images
  ┗ 📜 README.md
 
+---
 
 📄 License
 
 This project is licensed under the MIT License – you’re free to use, modify, and share with attribution.
 
+---
 
 👩‍💻 Author
 
