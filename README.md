@@ -35,7 +35,7 @@ A simple web app to search GitHub users and explore their repositories using the
 
 1. Clone the repository  
    ```bash
-   git clone https://github.com/ashhchouhan/Github-User-Finder.git
+   git clone https://github.com/amisha-chouhan/Github-User-Finder.git
 
 1.Open the folder in VS Code or any editor
 
